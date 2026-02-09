@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Download Center | Sanad Khazalih</title>
+  <meta name="description" content="Download programs and tools by Sanad Khazalih. Ruhul Bypass, Hubber-Checker-X, QuestSpoofer and more.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+  <script src="https://kit.fontawesome.com/de7a860622.js" crossorigin="anonymous"></script>
+  <link rel="icon" href="https://avatars.githubusercontent.com/u/99549578?v=4" type="image/x-icon">
+</head>
+<body>
+  <div class="particles" id="particles"></div>
+
+  <nav class="nav">
+    <div class="nav-container">
+      <a href="../" class="nav-logo">Sanad Khazalih</a>
+      <button class="nav-toggle" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="../">Home</a></li>
+        <li><a href="../#about">About</a></li>
+        <li><a href="../#projects">Projects</a></li>
+        <li><a href="index.html" class="active">Downloads</a></li>
+        <li><a href="../#skills">Skills</a></li>
+        <li><a href="../#testimonials">Testimonials</a></li>
+        <li><a href="../#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="downloads download-page">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Download Center</span>
+        <h2 class="section-title">Programs & tools</h2>
+        <p class="section-desc">Get direct access to my programs and tools. Download instantly.</p>
+      </div>
+      <div class="downloads-grid">
+        <article class="download-card">
+          <div class="download-icon" style="background: linear-gradient(135deg, #0f0f23 0%, #1a1a3e 100%);">
+            <i class="fa-solid fa-bolt"></i>
+          </div>
+          <div class="download-content">
+            <div class="download-meta">
+              <span class="download-badge">Tool</span>
+              <span class="download-version">Beta</span>
+            </div>
+            <h3>Ruhul Bypass</h3>
+            <p>Fast, secure, and reliable bypass tool. Join Discord to get your trial key or purchase activation.</p>
+            <div class="download-actions">
+              <a href="./apps/RuhulBeta.exe" target="_blank" rel="noopener" class="download-btn">
+                <i class="fa-solid fa-download"></i>
+                Download
+              </a>
+              <button type="button" class="changelog-btn" data-changelog="ruhul-bypass">
+                <i class="fa-solid fa-list"></i>
+                Change Logs
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <article class="download-card">
+          <div class="download-icon" style="background: linear-gradient(135deg, #2d2d44 0%, #1e1e2e 100%);">
+            <i class="fa-solid fa-magnifying-glass-chart"></i>
+          </div>
+          <div class="download-content">
+            <div class="download-meta">
+              <span class="download-badge">Checker</span>
+              <span class="download-version">GitHub</span>
+            </div>
+            <h3>Hubber-Checker-X</h3>
+            <p>Advanced username checker for hubber.cc</p>
+            <div class="download-actions">
+              <a href="./apps/HubberCheckerX.exe" target="_blank" rel="noopener" class="download-btn">
+                <i class="fa-solid fa-download"></i>
+                Download
+              </a>
+              <button type="button" class="changelog-btn" data-changelog="hubber-checker">
+                <i class="fa-solid fa-list"></i>
+                Change Logs
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <article class="download-card">
+          <div class="download-icon" style="background: linear-gradient(135deg, #3178c6 0%, #235a97 100%);">
+            <i class="fa-solid fa-gamepad"></i>
+          </div>
+          <div class="download-content">
+            <div class="download-meta">
+              <span class="download-badge">Plugin</span>
+              <span class="download-version">Discord Plugin</span>
+            </div>
+            <h3>QuestSpoofer</h3>
+            <p>Discord plugin that spoofs quest status for rewards. MIT licensed.</p>
+            <div class="download-actions">
+              <a href="./apps/QuestSpoofer.zip" target="_blank" rel="noopener" class="download-btn">
+                <i class="fa-solid fa-download"></i>
+                Download
+              </a>
+              <button type="button" class="changelog-btn" data-changelog="quest-spoofer">
+                <i class="fa-solid fa-list"></i>
+                Change Logs
+              </button>
+            </div>
+          </div>
+        </article>
+      </div>
+      <div class="download-back">
+        <a href="../" class="btn btn-outline">
+          <i class="fa-solid fa-arrow-left"></i>
+          Back to home
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Changelog Modal -->
+  <div id="changelog-modal" class="changelog-modal" aria-hidden="true">
+    <div class="changelog-overlay"></div>
+    <div class="changelog-popup">
+      <button type="button" class="changelog-close" aria-label="Close">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <div class="changelog-header">
+        <h3 id="changelog-title">Change Logs</h3>
+      </div>
+      <div id="changelog-content" class="changelog-body"></div>
+    </div>
+  </div>
+
+  <!-- Changelog Data - Ruhul Bypass & Hubber-Checker-X fetch from GitHub API -->
+  <template id="changelog-quest-spoofer">
+    <div class="changelog-list">
+      <div class="changelog-version">
+        <span class="version-tag">v1.0</span>
+        <ul>
+          <li>Discord quest status spoofing</li>
+          <li>MIT licensed - open source</li>
+        </ul>
+      </div>
+    </div>
+  </template>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© 2025 Alkhazalih. Made with ❤️</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="../script.js"></script>
+  <script src="changelog.js"></script>
+</body>
+</html>
