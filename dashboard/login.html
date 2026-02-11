@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex,nofollow">
+  <title>تسجيل الدخول | Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+  <script src="https://kit.fontawesome.com/de7a860622.js" crossorigin="anonymous"></script>
+  <style>
+    .login-page{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:40px}
+    .login-card{max-width:420px;width:100%;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);padding:24px}
+    .login-card h1{font-size:1.6rem;margin-bottom:8px}
+    .login-card p{color:var(--text-secondary);margin-bottom:16px}
+    .field{display:flex;flex-direction:column;gap:8px;margin-top:12px}
+    .field label{color:var(--text-secondary);font-size:.95rem}
+    .field input{background:var(--bg-secondary);border:1px solid var(--border);border-radius:var(--radius-sm);color:var(--text-primary);padding:12px}
+    .actions{display:flex;gap:12px;margin-top:16px}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:100px;border:1px solid var(--border);color:var(--accent-light)}
+    .btn.primary{background:var(--gradient-primary);color:#fff;border:none}
+    .error{color:#ff5f56;font-size:.9rem;margin-top:10px;min-height:22px}
+  </style>
+</head>
+<body>
+  <div class="particles" id="particles"></div>
+  <nav class="nav">
+    <div class="nav-container">
+      <a href="../" class="nav-logo">Sanad Khazalih</a>
+      <button class="nav-toggle" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="../">Home</a></li>
+        <li><a href="../#about">About</a></li>
+        <li><a href="../#projects">Projects</a></li>
+        <li><a href="../Download/">Downloads</a></li>
+        <li><a href="#" class="active">Dashboard Login</a></li>
+        <li><a href="../#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+  <section class="login-page">
+    <div class="login-card">
+      <h1>تسجيل الدخول</h1>
+      <p>أدخل كلمة المرور للوصول إلى الداشبورد.</p>
+      <div class="field">
+        <label>كلمة المرور</label>
+        <input id="password" type="password" placeholder="••••••••" autocomplete="current-password">
+      </div>
+      <div class="actions">
+        <button class="btn primary" id="loginBtn"><i class="fa-solid fa-right-to-bracket"></i><span>دخول</span></button>
+        <button class="btn" id="backBtn"><i class="fa-solid fa-arrow-left"></i><span>رجوع</span></button>
+      </div>
+      <div class="error" id="error"></div>
+    </div>
+  </section>
+  <script>
+    const HASH="8782c3c2ae0ebd325b41ec8ad42a330e15e02e12f8077f6cdb555c685256f07e";
+    async function sha256Hex(s){const enc=new TextEncoder().encode(s);const buf=await crypto.subtle.digest("SHA-256",enc);const arr=Array.from(new Uint8Array(buf));return arr.map(b=>b.toString(16).padStart(2,"0")).join("")}
+    document.getElementById("loginBtn").addEventListener("click",async()=>{const input=document.getElementById("password").value;const digest=await sha256Hex(input);if(digest===HASH){localStorage.setItem("dashboardAuth","1");window.location.href="./"}else{document.getElementById("error").textContent="كلمة المرور غير صحيحة"}})
+    document.getElementById("backBtn").addEventListener("click",()=>{window.location.href="../"})
+    if(localStorage.getItem("dashboardAuth")==="1"){window.location.href="./"}
+  </script>
+  <script src="../script.js"></script>
+</body>
+</html>
