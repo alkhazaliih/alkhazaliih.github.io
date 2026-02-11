@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Primary Meta Tags -->
+    <meta name="title" content="@Sanad Profile" />
+    <meta name="description" content="Dünyanın sonu mu?" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://alkhazalih.xyz/st" />
+    <meta property="og:title" content="@Sanad Profile" />
+    <meta
+      property="og:description"
+      content="Dünyanın sonu mu?"
+    />
+    <meta property="og:image" content="https://alkhazalih.xyz/st/assets/bg.png" />
+
+    <!-- X (Twitter) -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://alkhazalih.xyz/st" />
+    <meta property="twitter:title" content="@Sanad Profile" />
+    <meta
+      property="twitter:description"
+      content="Dünyanın sonu mu?"
+    />
+    <meta property="twitter:image" content="https://alkhazalih.xyz/st/assets/bg.png" />
+
+    <title>Sanad Profile</title>
+
+    <!-- External Dependencies -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+    />
+    <script src="https://kit.fontawesome.com/de7a860622.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link id="dynamic-favicon" rel="icon" href="assets/favicon.png" />
+  </head>
+  <body>
+    <script>
+      NekoType = "dave";
+    </script>
+    <!-- <script src="https://webneko.net/n20171213.js"></script> -->
+    <script src="js/webneko.js"></script>
+    <!-- UI Elements -->
+    <video
+      id="bg-video"
+      class="bg-video"
+      autoplay
+      loop
+      playsinline
+      preload="metadata"
+      poster="assets/wallpaper-poster.jpg"
+    >
+      <source src="assets/sanad.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+    <div class="custom-background"></div>
+    <div id="entry-overlay">
+      <p
+        class="text-[10px] tracking-[0.6em] uppercase opacity-30 animate-pulse"
+      >
+        Click to Enter
+      </p>
+    </div>
+    <div class="halftone-overlay"></div>
+    <div class="scanlines"></div>
+
+    <main class="relative z-20 w-full max-w-sm px-6 flex flex-col items-center">
+      <div
+        id="main-card"
+        class="liquid-glass p-10 w-full flex flex-col items-center text-center"
+      >
+        <div class="shine"></div>
+
+        <!-- Location (top-right) -->
+        <button class="location-btn" aria-label="Location: Jordan">
+          <i class="fa-solid fa-location-dot"></i>
+          <div class="tooltip">Jordan</div>
+        </button>
+
+        <!-- Avatar Section -->
+        <div class="relative mb-8 z-10">
+          <div class="avatar-wrapper">
+            <!--<img
+              id="avatar-deco"
+              class="avatar-decoration"
+              src="assets/deco.gif"
+              alt=""
+            />-->
+            <div
+              class="w-28 h-28 rounded-full p-1 bg-gradient-to-b from-white/20 to-transparent shadow-2xl overflow-hidden"
+            >
+              <img
+                id="avatar-img"
+                src="assets/pfpDiscord.jpg"
+                class="w-full h-full rounded-full object-cover"
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- Text Content -->
+        <div class="z-10 relative" style="transform: translateZ(15px)">
+          <div id="particle-container"></div>
+          <h1 id="profile-name" class="text-3xl font-light tracking-tight mb-2">
+            Sanad
+          </h1>
+          <p
+            id="profile-bio"
+            class="text-white/20 text-s font-mono mb-8 tracking-tight uppercase"
+          >
+            Dünyanın sonu mu?
+          </p>
+        </div>
+
+        <!-- Badges Content -->
+        <div class="badges w-full mb-4 z-10">
+          <button class="badge" aria-label="Fullstack developer">
+            <i class="fa-solid fa-code"></i>
+            <div class="tooltip">Fullstack developer</div>
+          </button>
+
+          <button class="badge" aria-label="Editor">
+            <span class="ruhul-badge"><img src="assets/ruhul.png" alt="ruhul"> </span>
+            <div class="tooltip">Ruhul Founder</div>
+          </button>
+
+          <button class="badge" aria-label="Designer">
+            <i class="fa-solid fa-paintbrush"></i>
+            <div class="tooltip">Designer</div>
+          </button>
+
+          <button class="badge" aria-label="Content Creator">
+            <i class="fa-solid fa-video"></i>
+            <div class="tooltip">Content Creator</div>
+          </button>
+        </div>
+
+        <!-- Social Links -->
+        <div class="flex items-center justify-center gap-4 w-full z-10 mb-8">
+          <a
+            class="social-btn"
+            href="https://discord.com/users/1142824627001888820"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Discord @e1r_"
+          >
+            <i class="fa-brands fa-discord text-2xl opacity-80"></i>
+            <div class="tooltip">@e1r_</div>
+          </a>
+
+          <a
+            class="social-btn"
+            href="https://instagram.com/kp9_b"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram @kp9_b"
+          >
+            <i class="fa-brands fa-instagram text-2xl opacity-80"></i>
+            <div class="tooltip">@kp9_b</div>
+          </a>
+
+          <a
+            class="social-btn"
+            href="http://github.com/alkhazalih"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Github @Alkhazalih"
+          >
+            <i class="fa-brands fa-github text-2xl opacity-80"></i>
+            <div class="tooltip">@Alkhazalih</div>
+          </a>
+
+          <a
+            class="social-btn"
+            href="https://tellonym.me/7cx2"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Tellonym @7cx2"
+          >
+            <img src="assets/icons/tell.png" alt="tellonym" class="text-2xl opacity-80 w-6 h-6"/>
+            <div class="tooltip">@7cx2</div>
+          </a>
+
+          <a
+            class="social-btn"
+            href="https://x.com/Alkhazaliih"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="X @Alkhazaliih"
+          >
+            <i class="fa-brands fa-x-twitter text-2xl opacity-80"></i>
+            <div class="tooltip">@Alkhazaliih</div>
+          </a>
+
+          <a
+            class="social-btn"
+            href="https://ruhul.rf.gd/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Website ruhul.rf.gd"
+          >
+            <i class="fa-solid fa-globe text-2xl opacity-80"></i>
+            <div class="tooltip">ruhul.rf.gd</div>
+          </a>
+        </div>
+      </div>
+    </main>
+
+    <!--<audio id="bg-music" loop>
+      <source src="assets/sanad.mp4" type="audio/mpeg" />
+    </audio>-->
+
+
+    <!-- Controls -->
+    <div class="fixed top-8 right-8 z-30">
+      <button
+        id="music-btn"
+        class="liquid-glass w-12 h-12 rounded-full flex items-center justify-center transition-all hover:scale-110 active:scale-90"
+      >
+        <i class="fa-solid fa-volume-xmark text-sm opacity-40"></i>
+      </button>
+    </div>
+
+
+    <!-- Custom Cursor -->
+    <div id="custom-cursor" aria-hidden="true">
+      <div class="cursor-ring"></div>
+      <div class="cursor-dot"></div>
+    </div>
+
+    <script>
+      // Fallback click handler to ensure overlay hides even if module fails
+      document.addEventListener("DOMContentLoaded", () => {
+        const ov = document.getElementById("entry-overlay");
+        if (ov) {
+          ov.addEventListener("click", () => {
+            ov.classList.add("fade-out");
+            ov.style.display = "none";
+            // attempt to play music and video and update UI
+            const a = document.getElementById("bg-music");
+            if (a) a.play().catch(() => {});
+            const v = document.getElementById("bg-video");
+            if (v) v.play().catch(() => {});
+            const mb = document.getElementById("music-btn");
+            if (mb)
+              mb.innerHTML =
+                '<i class="fa-solid fa-volume-high text-sm text-white"></i>';
+          });
+        }
+      });
+    </script>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>
