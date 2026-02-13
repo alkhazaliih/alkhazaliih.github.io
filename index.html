@@ -30,6 +30,29 @@
   <link rel="icon" href="https://avatars.githubusercontent.com/u/99549578?v=4" type="image/x-icon">
 </head>
 <body>
+  <script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-analytics.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyDCstGvR0EZUHntRf-gq6PnEb8CBpzLe-U",
+    authDomain: "ruhulstudioss.firebaseapp.com",
+    projectId: "ruhulstudioss",
+    storageBucket: "ruhulstudioss.firebasestorage.app",
+    messagingSenderId: "440162154760",
+    appId: "1:440162154760:web:dc1e2919c2ba6b771b54bd",
+    measurementId: "G-65DDD0T2ZQ"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+</script>
   <!-- Floating particles background -->
   <div class="particles" id="particles"></div>
 
@@ -372,3 +395,4 @@
   <script src="script.js"></script>
 </body>
 </html>
+
