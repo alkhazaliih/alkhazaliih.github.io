@@ -1,5 +1,0 @@
-@import url("../styles.css");
-.panel{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow)}
-.download-page{padding-top:140px}
-.download-card .download-meta{display:flex;gap:8px;align-items:center}
-.download-version{display:inline-flex;align-items:center;padding:4px 8px;border:1px solid var(--border);border-radius:999px;font-size:.8rem;color:var(--text-secondary)}
