@@ -129,3 +129,29 @@ revealStyle.textContent = `
   }
 `;
 document.head.appendChild(revealStyle);
+
+const imageHoverContainers = document.querySelectorAll('.project-image');
+imageHoverContainers.forEach(container => {
+  const video = container.querySelector('video.hover-video');
+  const img = container.querySelector('img.hover-img');
+  if (!video) return;
+  container.addEventListener('mouseenter', () => {
+    if (img) {
+      img.style.opacity = '0';
+      img.style.visibility = 'hidden';
+    }
+    video.style.opacity = '1';
+    video.style.visibility = 'visible';
+    video.play().catch(() => {});
+  });
+  container.addEventListener('mouseleave', () => {
+    video.pause();
+    video.currentTime = 0;
+    video.style.opacity = '0';
+    video.style.visibility = 'hidden';
+    if (img) {
+      img.style.opacity = '1';
+      img.style.visibility = 'visible';
+    }
+  });
+});

